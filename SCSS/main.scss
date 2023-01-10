@@ -145,6 +145,15 @@ header {
             }
         }
 
+        .circle-0{
+            fill: maroon;
+            stroke: grey;
+            stroke-width: 20;
+            stroke-dasharray: 157 157;
+            stroke-dashoffset: 78;
+            stroke-linecap: round;
+        }
+
         .circle-a {
             fill: $theme-color-1;
             stroke: rgba($theme-color-1, 80%);

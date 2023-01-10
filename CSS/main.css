@@ -174,6 +174,14 @@ header .hero h3 i {
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
+header .hero .circle-0 {
+  fill: maroon;
+  stroke: grey;
+  stroke-width: 20;
+  stroke-dasharray: 157 157;
+  stroke-dashoffset: 78;
+  stroke-linecap: round;
+}
 header .hero .circle-a {
   fill: #0B26B4;
   stroke: rgba(11, 38, 180, 0.8);
