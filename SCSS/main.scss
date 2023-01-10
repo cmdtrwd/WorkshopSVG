@@ -1,0 +1,358 @@
+@use "_reset.scss";
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@700;800;900&family=Prompt:ital,wght@0,200;0,300;0,400;1,300&family=Roboto:ital@0;1&display=swap');
+
+$theme-color-1: #0B26B4;
+$theme-color-2: #968AB6;
+$theme-color-3: #FBF8FF;
+$theme-color-4: #E8D5B5;
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2 {
+    font-family: 'Maven Pro', sans-serif;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Prompt', sans-serif;
+}
+
+#circle-a {
+    transition: 0.5s ease-out;
+}
+
+#circle-b {
+    transition: 0.5s ease-out;
+}
+
+
+@keyframes arrow-move {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes min-hand-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cloud-move {
+    from {
+        transform: translate(-149px, -179px);
+    }
+
+    to {
+        transform: translate(-179px, -179px);
+    }
+}
+
+@keyframes circle-color-change {
+    from {
+        fill: #6c63ff;
+    }
+
+    to {
+        fill: #56c99c;
+    }
+}
+
+@keyframes spin{
+    from{
+        stroke-dasharray: 110 110;
+        stroke-dashoffset: 55;
+    }
+    to{
+        stroke-dasharray: 110 110;
+        stroke-dashoffset: -800;
+    }
+}
+
+header {
+    .hero {
+        width: 100%;
+        height: 90vh;
+        background-color: $theme-color-3;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 20%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+
+        .rect {
+            position: absolute;
+            width: 200px;
+            height: 100vh;
+            top: 0;
+            z-index: 1;
+            transition: 0.5s ease-in-out;
+        }
+
+        #red {
+            left: 0;
+            background-color: rgba(red, 70%);
+            transform: translate(100px, -70vh);
+        }
+
+        #blue {
+            right: 0;
+            background-color: rgba(blue, 70%);
+            transform: translate(-100px, 70vh);
+        }
+
+        h1 {
+            font-size: 36px;
+            padding-top: 30px;
+            padding-bottom: 15px;
+
+            @media only screen and (min-width: 768px) {
+                font-size: 54px;
+            }
+        }
+
+        h3 {
+            font-size: 22px;
+            padding-bottom: 30px;
+
+            &:first-of-type {
+                padding-bottom: 15px;
+            }
+
+            i {
+                animation-name: arrow-move;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+            }
+        }
+
+        .circle-a {
+            fill: $theme-color-1;
+            stroke: rgba($theme-color-1, 80%);
+            stroke-width: 4;
+            stroke-miterlimit: 10;
+            stroke-dasharray: 12;
+            transform-origin: center;
+        }
+
+        .circle-b {
+            stroke: rgba(red, 80%);
+            stroke-width: 4;
+            stroke-miterlimit: 10;
+            stroke-dasharray: 12;
+            transform-origin: center;
+        }
+
+        .circle-c{
+            fill: $theme-color-4;
+            stroke: $theme-color-1;
+            stroke-width: 20;
+            stroke-linecap: round;
+            stroke-dasharray:  110 110;
+            stroke-dashoffset: 55;
+
+            animation-name: spin;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            // animation-direction: alternate;
+        }
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 50px;
+        width: 100%;
+        background-color: $theme-color-1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        transform: translateY(-50px);
+        transition: 0.5s ease-out;
+
+        &.active {
+            transform: translateY(0);
+        }
+
+        &.top {
+            background-color: rgba($theme-color-1, 0);
+
+            #bar-btn,
+            #close-btn {
+                color: $theme-color-1;
+            }
+        }
+
+        #bar-btn {
+            color: $theme-color-3;
+            padding: 9px;
+            box-sizing: border-box;
+            display: block;
+            cursor: pointer;
+
+            &.active {
+                display: none;
+            }
+        }
+
+        #close-btn {
+            color: $theme-color-3;
+            padding: 9px;
+            box-sizing: border-box;
+            display: none;
+            cursor: pointer;
+
+            &.active {
+                display: block;
+            }
+        }
+
+        #menu-container {
+            padding: 10px 0px 10px 8px;
+            box-sizing: border-box;
+            box-shadow: 0px 2px 4px rgba(black, 20%);
+            background-color: white;
+            transition: 0.5s ease-in-out;
+            transform: translateX(150px);
+
+            ul {
+                li {
+                    cursor: pointer;
+                    border-top: 1px solid rgba(0, 0, 0, 20%);
+                    position: relative;
+                    width: 120px;
+                    height: 34px;
+                    box-sizing: border-box;
+                    overflow: hidden;
+
+                    a {
+                        text-decoration: none;
+                        color: $theme-color-2;
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 2;
+                        height: 34px;
+                        line-height: 16px;
+                        padding: 9px;
+                        transition: 0.5s ease-in;
+                    }
+
+                    .box-bg {
+                        position: absolute;
+                        z-index: 1;
+                        width: 100%;
+                        height: inherit;
+                        box-sizing: border-box;
+                        background-color: $theme-color-1;
+                        top: 0;
+                        left: 0;
+                        padding: 9px;
+                        transform: translateX(-100%);
+                        transition: 0.5s ease-in;
+                    }
+
+                    &:first-child {
+                        border-top: none;
+                    }
+
+                    &:hover {
+                        a {
+                            color: $theme-color-3;
+                        }
+
+                        .box-bg {
+                            transform: translateX(0);
+                        }
+                    }
+                }
+            }
+
+            &.active {
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+#text-area {
+    padding: 100px 70px;
+    box-sizing: border-box;
+
+    p {
+        font-size: 28px;
+        line-height: 150%;
+    }
+
+    @media only screen and (min-width: 768px) {
+        padding: 150px 100px;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        padding: 200px 350px;
+    }
+}
+
+#dummy-area {
+    padding: 100px 70px;
+    box-sizing: border-box;
+    background-color: $theme-color-4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    svg {
+        overflow: hidden;
+
+        #min-hand {
+            transform-origin: 455px 314px;
+            animation-name: min-hand-rotate;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+        }
+
+        #cloud {
+            transform-origin: center;
+            animation-name: cloud-move;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-fill-mode: forwards;
+        }
+
+        #purple-circle {
+            animation-name: circle-color-change;
+            animation-duration: 5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-fill-mode: forwards;
+        }
+    }
+}
