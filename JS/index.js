@@ -1,7 +1,19 @@
 $(document).ready(function(){
-    $(window).scroll(function(){
-        let currentScrollTop = 0;
+    let lastScrollTop = 0;
 
-        console.debug("current scroll position: " + currentScrollTop);
+    $(window).scroll(function(){
+        let currentScrollTop = $(this).scrollTop();
+        // console.debug("current scroll position: " + currentScrollTop);
+
+        //Scrolling down is detected!
+        if (currentScrollTop > lastScrollTop){
+            console.debug("scrolling down");
+        }
+        //Scrolling up is detected!
+        else{
+            console.debug("scrolling up");
+        }
+
+        lastScrollTop = currentScrollTop;
     });
 });
