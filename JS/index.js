@@ -3,7 +3,13 @@ $(document).ready(function(){
 
     $(window).scroll(function(){
         let currentScrollTop = $(this).scrollTop();
+        let translatePos = currentScrollTop;
+        let rotateDeg = currentScrollTop;
+        let scalingFactor = 1 - currentScrollTop * .002;
+
         // console.debug("current scroll position: " + currentScrollTop);
+
+        $("#circle-a").css("transform", "translate(" + translatePos + "px) rotate("+ rotateDeg + "deg) scale(" + scalingFactor + ")");
 
         //Scrolling down is detected!
         if (currentScrollTop > lastScrollTop){

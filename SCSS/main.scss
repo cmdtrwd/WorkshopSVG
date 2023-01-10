@@ -6,6 +6,10 @@ $theme-color-2: #968AB6;
 $theme-color-3: #FBF8FF;
 $theme-color-4: #E8D5B5;
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
 }
