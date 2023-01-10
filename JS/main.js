@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    var lastScrollTop = 0;
+    let lastScrollTop = 0;
 
     $(window).scroll(function () {
-        var currentScrollTop = $(this).scrollTop();
-        var translatePos = currentScrollTop;
-        var rotateDeg = currentScrollTop;
+        let currentScrollTop = $(this).scrollTop();        
+        let translatePos = currentScrollTop;
+        let rotateDeg = currentScrollTop;
         translatePos = translatePos * 0.8;
-        var scalingFactor = 1 - currentScrollTop * .002;
-        var translateRectY = 70 - currentScrollTop * 0.1;
+        let scalingFactor = 1 - currentScrollTop * .002;
+        let translateRectY = 70 - currentScrollTop * 0.1;
 
 
         $('#circle-a').css("transform", "translate(" + translatePos + "px, 0px) rotate(" + rotateDeg + "deg) scale(" + scalingFactor + ")");
