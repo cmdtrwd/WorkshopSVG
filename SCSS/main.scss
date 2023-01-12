@@ -307,6 +307,34 @@ header {
                 transform: translateX(0);
             }
         }
+
+        @media  screen and (min-width: 642px) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(0px);
+
+            #bar-btn{
+                display: none;
+            }
+
+            #close-btn{
+                display: none;
+            }
+
+            #menu-container {
+                transform: translateX(0px);
+
+                ul{
+                    display: flex;
+                    flex-direction: row;
+
+                    li{
+                        border-top: 0px;
+                    }
+                }
+            }
+        }
     }
 }
 

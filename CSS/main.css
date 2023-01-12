@@ -311,6 +311,30 @@ header nav #menu-container ul li:hover .box-bg {
 header nav #menu-container.active {
   transform: translateX(0);
 }
+@media screen and (min-width: 642px) {
+  header nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0px);
+  }
+  header nav #bar-btn {
+    display: none;
+  }
+  header nav #close-btn {
+    display: none;
+  }
+  header nav #menu-container {
+    transform: translateX(0px);
+  }
+  header nav #menu-container ul {
+    display: flex;
+    flex-direction: row;
+  }
+  header nav #menu-container ul li {
+    border-top: 0px;
+  }
+}
 
 #text-area {
   padding: 100px 70px;
